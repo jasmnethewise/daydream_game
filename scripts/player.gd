@@ -3,7 +3,11 @@ extends CharacterBody2D
 func _ready():
 	$AnimatedSprite2D.play("idle")
 const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -500.0
+
+var coin_counter = 0
+
+@onready var coin_label = %Label
 
 
 func _physics_process(delta: float) -> void:
@@ -24,3 +28,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coin"):
+		set_coin(coin_counter + 1)
+		print(coin_counter)
+
+
+func set_coin(new_coin_count: int) -> void:
+	coin_counter = new_coin_count
+	coin_label.text = "Coin Count: " + str(coin_counter)
