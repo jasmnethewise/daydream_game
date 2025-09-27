@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="daydream_platformer"
+run/main_scene="uid://bmtjkly3j5ids"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2500
+window/size/viewport_height=1000
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [rendering]
 

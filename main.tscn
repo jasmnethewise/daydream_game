@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmtjkly3j5ids"]
+
+[ext_resource type="Texture2D" uid="uid://ddfwj56m3587s" path="res://ezgif-split (1)/frame_0_delay-0.05s.png" id="1_5vw27"]
+[ext_resource type="Script" uid="uid://podysnlugkx6" path="res://player.gd" id="1_kek77"]
+[ext_resource type="Texture2D" uid="uid://cyhihq18du8bg" path="res://ezgif-split (1)/frame_1_delay-0.05s.png" id="2_kek77"]
+[ext_resource type="Texture2D" uid="uid://m622w5v216bi" path="res://ezgif-split (1)/frame_2_delay-0.05s.png" id="3_4c57u"]
+[ext_resource type="Texture2D" uid="uid://cw76422qi7r6j" path="res://ezgif-split (1)/frame_3_delay-0.05s.png" id="4_efxa6"]
+[ext_resource type="Texture2D" uid="uid://wx342svnkxwx" path="res://ezgif-split (1)/frame_4_delay-0.05s.png" id="5_dg77c"]
+[ext_resource type="Texture2D" uid="uid://c26fo8u7rgn8t" path="res://ezgif-split (1)/frame_5_delay-0.05s.png" id="6_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bfaq152dph35e" path="res://ezgif-split (1)/frame_6_delay-0.05s.png" id="7_w48qg"]
+[ext_resource type="Texture2D" uid="uid://bu13a025bobao" path="res://ezgif-split (1)/frame_7_delay-0.05s.png" id="8_vivmo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cqfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5vw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kek77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4c57u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_efxa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dg77c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ycdy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w48qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vivmo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Node" type="Node"]
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_kek77")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+position = Vector2(460, 519)
+sprite_frames = SubResource("SpriteFrames_2cqfq")
+animation = &"idle"
+frame_progress = 0.702421
