@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bmtjkly3j5ids"]
+[gd_scene load_steps=20 format=4 uid="uid://bmtjkly3j5ids"]
 
 [ext_resource type="Texture2D" uid="uid://ddfwj56m3587s" path="res://ezgif-split (1)/frame_0_delay-0.05s.png" id="1_5vw27"]
 [ext_resource type="Script" uid="uid://podysnlugkx6" path="res://scripts/player.gd" id="1_kek77"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bu13a025bobao" path="res://ezgif-split (1)/frame_7_delay-0.05s.png" id="8_vivmo"]
 [ext_resource type="Texture2D" uid="uid://lu7bq1hp717p" path="res://download (12).jpeg" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bijrq63xpee0" path="res://download (13).jpeg" id="10_efxa6"]
+[ext_resource type="AudioStream" uid="uid://c71ll2yd6aa40" path="res://music/coin.mp3" id="11_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://k48mswai3q33" path="res://coin.tscn" id="12_dg77c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg77c"]
@@ -2696,6 +2697,9 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
 position = Vector2(230, 181)
 shape = SubResource("CircleShape2D_ycdy4")
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("11_ycdy4")
 
 [node name="background" type="ParallaxBackground" parent="."]
 

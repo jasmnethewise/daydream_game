@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -500.0
 
 var coin_counter = 0
 
+@onready var coin_sound = $CoinSound
 @onready var coin_label = %Label
 
 
@@ -32,7 +33,9 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin"):
 		set_coin(coin_counter + 1)
+		coin_sound.play()  # هنا الصوت
 		print(coin_counter)
+		area.queue_free()  # لو عايز الكوين يختفي بعد ما تاخده
 
 
 func set_coin(new_coin_count: int) -> void:
