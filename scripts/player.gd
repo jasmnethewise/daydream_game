@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-func _ready():
-	$AnimatedSprite2D.play("idle")
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 
@@ -10,6 +8,9 @@ var coin_counter = 0
 @onready var coin_sound = $CoinSound
 @onready var coin_label = %Label
 
+
+func _ready():
+	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,22 +22,26 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	
+	if direction > 0:
+		$AnimatedSprite2D.flip_h = false
+	elif direction < 0:
+		$AnimatedSprite2D.flip_h = true   
+
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin"):
 		set_coin(coin_counter + 1)
-		coin_sound.play()  # هنا الصوت
+		coin_sound.play()
 		print(coin_counter)
-		area.queue_free()  # لو عايز الكوين يختفي بعد ما تاخده
-
+		area.queue_free()
 
 func set_coin(new_coin_count: int) -> void:
 	coin_counter = new_coin_count

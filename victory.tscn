@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dniexk6s887ra"]
+
+[ext_resource type="Texture2D" uid="uid://djtdivgj8pkf7" path="res://victory_flag.png" id="1_7bnjr"]
+[ext_resource type="AudioStream" uid="uid://cqdnclkllofbh" path="res://music/VictorySound.mp3" id="3_v3ap6"]
+
+[sub_resource type="GDScript" id="GDScript_v31sk"]
+script/source = "extends Area2D
+
+@onready var victory_sound = $VictorySound
+
+
+func _on_body_entered(body: Node2D):
+	if body.is_in_group(\"Player\"):
+		$VictorySound.play()
+		get_tree().paused = true
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v31sk"]
+size = Vector2(82, 128)
+
+[node name="flag" type="Area2D"]
+script = SubResource("GDScript_v31sk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(341, 282)
+shape = SubResource("RectangleShape2D_v31sk")
+
+[node name="victory" type="Sprite2D" parent="."]
+position = Vector2(341, 282)
+scale = Vector2(0.253333, 0.24)
+texture = ExtResource("1_7bnjr")
+
+[node name="VictorySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v3ap6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

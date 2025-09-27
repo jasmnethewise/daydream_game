@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="daydream_platformer"
-run/main_scene="uid://bmtjkly3j5ids"
+run/main_scene="uid://75vsrwfwa8ng"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
 
 [editor_plugins]
 
