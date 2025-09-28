@@ -1,3 +1,13 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+.android/
+
+# Export outputs
+export/
+export_presets.cfg
+*.zip
+*.tpz
+
+# OS junk files
+.DS_Store
+Thumbs.db
